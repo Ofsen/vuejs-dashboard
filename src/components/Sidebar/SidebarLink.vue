@@ -73,7 +73,7 @@ export default {
 	position: relative;
 	font-weight: 400;
 	user-select: none;
-	padding: 1rem 0.75em;
+	padding: 0.75rem 0.75em;
 	color: var(--light);
 	text-decoration: none;
 }

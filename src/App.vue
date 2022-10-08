@@ -1,10 +1,11 @@
 <script>
 import { RouterView } from "vue-router";
 import Sidebar from "@/components/Sidebar/Sidebar.vue";
+import Header from "@/components/Header.vue";
 import { sidebarWidth } from "@/components/sidebar/state";
 
 export default {
-	components: { Sidebar, RouterView },
+	components: { Sidebar, Header, RouterView },
 	setup() {
 		sidebarWidth;
 	},
@@ -20,22 +21,11 @@ export default {
 			}
 		"
 	>
-		<RouterView />
+		<Header />
+		<section>
+			<RouterView />
+		</section>
 	</main>
-	<!-- <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header> -->
-
-	<!-- <RouterView /> -->
 </template>
 
 <style lang="scss">
@@ -44,6 +34,9 @@ export default {
 	--primary-alt: #153f84;
 	--light: #e5e8e9;
 	--dark: #202022;
+	--lightgray: rgb(154, 161, 182);
+	--gray: rgb(108, 116, 139);
+	--darkgrey: rgb(66, 72, 92);
 	--light-blue: #3baad9;
 
 	--sidebar-bg-color: #303c54;
@@ -89,12 +82,15 @@ body {
 
 	main {
 		flex: 1 1 0;
-		padding: 2rem;
 		max-height: 100vh;
 		overflow-y: auto;
 
+		section {
+			padding: 1rem;
+		}
+
 		@media (max-width: 768px) {
-			padding-left: 5rem;
+			padding-left: 3rem;
 		}
 	}
 }
@@ -102,5 +98,4 @@ body {
 .grow-full {
 	flex-grow: 1;
 }
-
 </style>

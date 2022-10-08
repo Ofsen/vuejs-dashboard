@@ -27,13 +27,12 @@
 		<div class="grow-full" />
 
 		<span class="toggle-menu collapsed-icon" :class="{ 'rotate-180': collapsed }" @click="toggleSidebar">
-			<i class="fas fa-angle-double-left" />
+			<i class="fas fa-chevron-left" />
 		</span>
 	</aside>
 </template>
 
 <script>
-// import { RouterLink } from "vue-router";
 import { collapsed, toggleSidebar, sidebarWidth } from "./state";
 import SidebarLink from "./SidebarLink.vue";
 
@@ -46,7 +45,7 @@ export default {
 	data() {
 		return {
 			menuTree: [
-				{ label: "Dashboard", icon: "fas fa-gauge", to: "/dashboard" },
+				{ label: "Dashboard", icon: "fas fa-gauge", to: "/dashboard", newTag: true },
 				{ label: "theme", title: true },
 				{ label: "Colors", icon: "fas fa-droplet", to: "/colors" },
 				{ label: "Typography", icon: "fas fa-pen", to: "/typography" },
@@ -63,7 +62,7 @@ export default {
 				{ label: "Forms", icon: "fas fa-table-list", to: "/Forms" },
 				{ label: "Icons", icon: "fas fa-star", to: "/Icons" },
 				{ label: "Notifications", icon: "fas fa-bell", to: "/Notifications" },
-				{ label: "Widgets", icon: "fas fa-puzzle-piece", to: "/Widgets" },
+				{ label: "Widgets", icon: "fas fa-puzzle-piece", to: "/Widgets", newTag: true },
 				{ label: "extras", title: true },
 				{ label: "pages", icon: "fas fa-star", to: "/pages" },
 				{ title: true },

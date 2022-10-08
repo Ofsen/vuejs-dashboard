@@ -1,4 +1,4 @@
 <template>
-	<h1>About</h1>
+	<h1>HELOOOOOO</h1>
 	<p>This is about.</p>
 </template>
