@@ -6,6 +6,7 @@
 		<RouterLink class="menu-link" to="/dashboard">Dashboard</RouterLink>
 		<RouterLink class="menu-link" to="/Users">Users</RouterLink>
 		<RouterLink class="menu-link" to="/Settings">Settings</RouterLink>
+		<RouterLink class="menu-link" to="/about">About</RouterLink>
 
 		<div class="grow-full" />
 

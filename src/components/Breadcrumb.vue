@@ -1,10 +1,26 @@
 <template>
 	<div class="breadcrumb">
 		<RouterLink to="/">Home</RouterLink>
-		<span>/</span>
-		<span>Dashboard</span>
+		<p>{{ crumbs }}</p>
 	</div>
 </template>
+
+<script>
+export default {
+	computed: {
+		crumbs: function () {
+			let path = this.$route.fullPath.split("/").slice(1);
+			let result = "";
+			if (path[0].length > 0) {
+				path.map((e) => {
+					result += " / " + e.charAt(0).toUpperCase() + e.slice(1);
+				});
+			}
+			return result;
+		},
+	},
+};
+</script>
 
 <style lang="scss" scoped>
 .breadcrumb {

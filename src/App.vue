@@ -82,11 +82,11 @@ body {
 
 	main {
 		flex: 1 1 0;
-		max-height: 100vh;
-		overflow-y: auto;
 
 		section {
 			padding: 1rem;
+			max-height: calc(100vh - 50px - 40px);
+			overflow-y: auto;
 		}
 
 		@media (max-width: 768px) {
