@@ -38,7 +38,7 @@ export default {
 			{{ label }}
 		</span>
 		<div class="grow-full" />
-		<div v-if="newTag" class="new">new</div>
+		<div v-if="newTag && !collapsed" class="new">new</div>
 	</RouterLink>
 	<div v-if="data" class="link groupedLink" @click="toggleChildren()">
 		<i v-if="icon" class="icon" :class="icon" />
