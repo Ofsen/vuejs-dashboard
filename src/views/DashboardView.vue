@@ -1,5 +1,5 @@
 <template>
-	<div class="grid container">
+	<div class="container">
 		<div class="grid row-4">
 			<Card bg="#321fdb" color="#fff">
 				<template v-slot:title>26K</template>
@@ -38,13 +38,13 @@
 					<p>Sessions</p>
 				</template>
 				<template v-slot:chart>
-					<canvas class="w-full" id="myChart4"></canvas>
+					<canvas sc class="w-full" id="myChart4"></canvas>
 				</template>
 			</Card>
 		</div>
 
 		<div class="grid row-1">
-			<Card option>
+			<Card option description>
 				<template v-slot:title>Traffic</template>
 				<template v-slot:subtitle>
 					<p>January - July 2021</p>
@@ -52,6 +52,33 @@
 				<template v-slot:option></template>
 				<template v-slot:chart>
 					<canvas class="w-full" id="myChart5"></canvas>
+				</template>
+				<template v-slot:description>
+					<div class="info">
+						<p>Visits</p>
+						<h3>29.703 Users (40%)</h3>
+						<Progressbar percentage="40" color="#36ba63" />
+					</div>
+					<div class="info">
+						<p>Unique</p>
+						<h3>24.093 Users (20%)</h3>
+						<Progressbar percentage="20" color="#399bfe" />
+					</div>
+					<div class="info">
+						<p>Pageviews</p>
+						<h3>78.706 Views (60%)</h3>
+						<Progressbar percentage="60" color="#f8b21d" />
+					</div>
+					<div class="info">
+						<p>New Users</p>
+						<h3>22.123 Users (80%)</h3>
+						<Progressbar percentage="80" color="#e55958" />
+					</div>
+					<div class="info">
+						<p>Bounce Rate</p>
+						<h3>40.15%</h3>
+						<Progressbar percentage="40.15" color="#3927db" />
+					</div>
 				</template>
 			</Card>
 		</div>
@@ -79,8 +106,9 @@
 <script>
 import Chart from "chart.js/auto";
 import Card from "@/components/Card.vue";
+import Progressbar from "@/components/Progressbar.vue";
 export default {
-	components: { Card },
+	components: { Card, Progressbar },
 	mounted() {
 		const ctx = document.getElementById("myChart");
 		const ctx2 = document.getElementById("myChart2");
@@ -109,7 +137,9 @@ export default {
 			type: "line",
 			data: data,
 			options: {
-				responsive: false,
+				maintainAspectRatio: false,
+				resizeDelay: 500,
+				responsive: true,
 				plugins: {
 					legend: {
 						display: false,
@@ -133,11 +163,59 @@ export default {
 		const myChart2 = new Chart(ctx2, config);
 		const myChart3 = new Chart(ctx3, config);
 		const myChart4 = new Chart(ctx4, config);
-		const myChart5 = new Chart(ctx5, config);
 		myChart;
 		myChart2;
 		myChart3;
 		myChart4;
+
+		const labelsBIG = ["January", "February", "March", "April", "May", "June", "July"];
+		const dataBIG = {
+			labels: labelsBIG,
+			datasets: [
+				{
+					label: "BIG CHART",
+					data: [160, 65, 120, 170, 198, 105, 190],
+					borderColor: "#80d39b",
+					tension: 0.5,
+					fill: false,
+					pointRadius: 1,
+				},
+				{
+					label: "BIG CHART",
+					data: [190, 54, 160, 140, 70, 120, 130],
+					fill: true,
+					borderColor: "#75b8fd",
+					tension: 0.5,
+					backgroundColor: "#e8e9ea",
+					pointRadius: 1,
+				},
+			],
+		};
+		const configBIG = {
+			type: "line",
+			data: dataBIG,
+			options: {
+				maintainAspectRatio: false,
+				resizeDelay: 500,
+				responsive: true,
+				plugins: {
+					legend: {
+						display: false,
+					},
+					tooltip: {
+						enabled: false,
+					},
+				},
+				scales: {
+					y: {
+						ticks: {
+							padding: 20,
+						},
+					},
+				},
+			},
+		};
+		const myChart5 = new Chart(ctx5, configBIG);
 		myChart5;
 	},
 };
@@ -148,8 +226,9 @@ export default {
 	display: grid;
 }
 .container {
-	gap: 1rem;
-	grid-template-rows: 1fr auto 1fr;
+	display: grid;
+	gap: 1em;
+	grid-template-rows: min-content 1fr min-content;
 }
 .row-4 {
 	grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -183,5 +262,9 @@ export default {
 
 .w-full {
 	width: 100%;
+}
+
+.info {
+	flex-basis: 20%;
 }
 </style>

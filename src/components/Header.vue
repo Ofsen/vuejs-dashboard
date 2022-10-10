@@ -3,10 +3,12 @@
 		<RouterLink class="menu-link" to="#" @click="toggleSidebar()">
 			<i class="fa-solid fa-bars"></i>
 		</RouterLink>
-		<RouterLink class="menu-link" to="/dashboard">Dashboard</RouterLink>
-		<RouterLink class="menu-link" to="/Users">Users</RouterLink>
-		<RouterLink class="menu-link" to="/Settings">Settings</RouterLink>
-		<RouterLink class="menu-link" to="/about">About</RouterLink>
+		<div class="quick-links">
+			<RouterLink class="menu-link" to="/dashboard">Dashboard</RouterLink>
+			<RouterLink class="menu-link" to="/Users">Users</RouterLink>
+			<RouterLink class="menu-link" to="/Settings">Settings</RouterLink>
+			<RouterLink class="menu-link" to="/about">About</RouterLink>
+		</div>
 
 		<div class="grow-full" />
 
@@ -52,18 +54,23 @@ header {
 
 	padding: 1rem 1rem 1rem 0;
 
-	& > * {
-		padding: 0 0 0 1rem;
-	}
-
 	.menu-link {
 		color: var(--darkgrey);
 		text-decoration: none;
+		padding: 0 0 0 1rem;
 	}
 
 	.avatar {
 		border-radius: 50%;
 		margin-left: 0.5rem;
+	}
+
+	.quick-links {
+		display: initial;
+
+		@media (max-width: 570px) {
+			display: none;
+		}
 	}
 }
 </style>

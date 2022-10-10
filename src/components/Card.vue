@@ -19,9 +19,9 @@
 		<div class="subtitle">
 			<slot name="subtitle" />
 		</div>
-		<div class="chart">
+		<figure class="chart">
 			<slot name="chart" />
-		</div>
+		</figure>
 		<RouterLink v-if="link" class="link" to="link">
 			<div class="fullcontent">
 				<slot name="fullcontent" />
@@ -32,6 +32,9 @@
 				<slot name="fullcontent" />
 			</div>
 		</template>
+		<div v-if="description" class="description">
+			<slot name="description" />
+		</div>
 	</div>
 </template>
 
@@ -42,12 +45,14 @@ export default {
 		color: { type: String },
 		option: { type: Boolean },
 		link: { type: String },
+		description: { type: Boolean },
 	},
 };
 </script>
 
 <style lang="scss" scoped>
 .card-container {
+	min-height: 8rem;
 	position: relative;
 	background-color: white;
 	box-shadow: 0 1px 2px 0 var(--lightgray);
@@ -100,6 +105,17 @@ export default {
 	.link {
 		color: #fff;
 		text-decoration: none;
+	}
+
+	.description {
+		gap: 1.5rem;
+		display: flex;
+		text-align: center;
+		justify-content: space-between;
+		background-color: rgb(240, 240, 240);
+		margin: 1rem -1rem -1rem -1rem;
+		padding: 1rem;
+		border-top: 1px solid rgb(196, 196, 196);
 	}
 }
 </style>
