@@ -110,6 +110,7 @@ import Progressbar from "@/components/Progressbar.vue";
 export default {
 	components: { Card, Progressbar },
 	mounted() {
+		// Setup des charts on component mounted
 		const ctx = document.getElementById("myChart");
 		const ctx2 = document.getElementById("myChart2");
 		const ctx3 = document.getElementById("myChart3");
@@ -266,5 +267,9 @@ export default {
 
 .info {
 	flex-basis: 20%;
+
+	@media (max-width: 1024px) {
+		flex-basis: 40%;
+	}
 }
 </style>

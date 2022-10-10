@@ -29,6 +29,7 @@ export default {
 </template>
 
 <style lang="scss">
+// setup des css de base
 :root {
 	--primary: #2359b1;
 	--primary-alt: #153f84;
