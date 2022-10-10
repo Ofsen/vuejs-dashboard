@@ -101,7 +101,7 @@ export default {
 }
 
 .title {
-	margin: 2rem 1rem 0;
+	margin: 2rem 1rem 0.2rem;
 	text-transform: uppercase;
 	font-size: 0.75rem;
 }

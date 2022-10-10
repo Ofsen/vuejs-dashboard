@@ -35,7 +35,7 @@ export default {
 	font-size: 0.8rem;
 
 	& > * {
-		padding-right: 0.5rem;
+		padding-right: 0.25rem;
 	}
 
 	a {
